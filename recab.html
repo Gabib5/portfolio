@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barle María Gabriela — UX/UI Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Georama:wght@400;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --negro:#000000; --negro-suave:#0F0F0F; --gris-oscuro:#1C1C1C; --gris-texto:#2B2B2B;
+    --gris-medio:#919191; --gris-footer:#666666; --gris-fondo:#F8F8F8; --lila:#E4CBE4;
+    --tinta:#333333; --nav:#20292F; --blanco:#FFFFFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Open Sans',sans-serif;background:var(--blanco);color:var(--tinta);overflow-x:hidden;}
+  a{text-decoration:none;color:inherit;}
+  img{display:block;max-width:100%;}
+  .page{max-width:1240px;margin:0 auto;padding:0 24px;}
+
+  /* ===== HEADER ===== */
+  .site-header{position:fixed;top:22px;left:50%;transform:translateX(-50%);width:min(1240px,calc(100% - 32px));height:58px;background:rgba(255,255,255,0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:16px;display:flex;align-items:center;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,0.08);}
+  .site-header .logo{font-family:'Georama',sans-serif;font-weight:700;font-size:19px;color:var(--nav);padding:12px;margin-left:24px;}
+  .site-header nav{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:16px;}
+  .site-header nav a{font-size:15px;color:var(--nav);padding:12px;transition:opacity .2s ease;}
+  .site-header nav a:hover{opacity:.55;}
+
+  /* ===== HERO ===== */
+  .hero{position:relative;background:var(--blanco);height:560px;overflow:hidden;}
+  .hero .circulo{position:absolute;top:-320px;right:-160px;width:620px;height:620px;border:2.5px solid var(--negro);border-radius:50%;}
+  .hero .rol{position:absolute;top:200px;left:26px;font-family:'Georama',sans-serif;font-weight:700;font-size:96px;line-height:1.28;color:var(--lila);white-space:nowrap;}
+  .hero .nombre{position:absolute;top:324px;left:26px;font-family:'Georama',sans-serif;font-weight:600;font-size:60px;line-height:1.2;color:var(--tinta);}
+
+  /* ===== PRESENTACIÓN ===== */
+  .presentacion{position:relative;background:var(--negro);display:flex;align-items:center;}
+  .presentacion .contenido{width:100%;position:relative;display:flex;align-items:center;padding:44px 40px;gap:0;}
+  .presentacion .foto{width:190px;height:190px;border-radius:50%;object-fit:cover;flex-shrink:0;margin-left:60px;}
+  .presentacion .saludo{font-family:'Georama',sans-serif;font-weight:600;font-size:40px;line-height:1.2;color:var(--blanco);margin-left:44px;flex-shrink:0;}
+  .presentacion .bio{font-weight:700;font-size:15px;line-height:23px;color:var(--blanco);max-width:600px;margin-left:64px;}
+
+  /* ===== CV ===== */
+  .cv{position:relative;background:var(--gris-fondo);padding:96px 0 110px;overflow:hidden;}
+  .cv .rect-decor{position:absolute;top:96px;left:-300px;width:640px;height:510px;border:2.5px solid var(--negro);}
+  .cv .columna{position:relative;max-width:760px;margin-left:auto;margin-right:60px;display:flex;flex-direction:column;gap:48px;}
+  .cv h2{font-family:'Georama',sans-serif;font-weight:600;font-size:27px;line-height:37px;color:var(--gris-oscuro);margin-bottom:24px;}
+  .cv .bloque-items{display:flex;flex-direction:column;gap:20px;}
+  .cv .item .titulo{font-weight:700;font-size:14px;line-height:19px;color:var(--negro);margin-bottom:6px;}
+  .cv .item .detalle{font-weight:400;font-size:14px;line-height:22px;color:var(--gris-texto);}
+  .cv .item-edu .titulo{font-size:16px;}
+  .cv .item-edu .detalle{line-height:19px;}
+  .cv .lista-formacion p{font-size:14px;line-height:20px;color:var(--negro);margin-bottom:18px;}
+  .cv .lista-formacion p.destacado{font-weight:600;}
+  .cv .herramientas{font-weight:600;font-size:14px;line-height:26px;color:var(--negro);}
+  .cv .idioma{font-family:'Georama',sans-serif;font-weight:600;font-size:19px;line-height:37px;color:var(--gris-oscuro);margin-top:18px;}
+
+  /* ===== PROYECTOS ===== */
+  .proyectos{background:var(--negro-suave);padding:110px 40px 120px;}
+  .proyectos .contenido{max-width:640px;margin:0 auto;}
+  .proyectos h2{font-family:'Georama',sans-serif;font-weight:600;font-size:37px;line-height:1.05;color:var(--blanco);margin-bottom:28px;}
+  .proyectos .lista{display:flex;flex-direction:column;gap:6px;}
+  .proyecto{display:block;border-bottom:1px solid var(--blanco);padding:18px 0 20px;transition:padding-left .25s ease;}
+  .proyecto:hover{padding-left:12px;}
+  .proyecto .categoria{font-weight:400;font-size:16px;line-height:20px;color:var(--blanco);margin-bottom:6px;}
+  .proyecto .nombre-proyecto{font-family:'Georama',sans-serif;font-weight:600;font-size:31px;line-height:1.25;color:var(--gris-medio);transition:color .25s ease;}
+  .proyecto:hover .nombre-proyecto{color:var(--blanco);}
+
+  /* ===== CONTACTO ===== */
+  .contacto{background:var(--negro-suave);padding:110px 40px;}
+  .contacto .contenido{max-width:900px;margin:0 auto;display:flex;justify-content:space-between;gap:60px;flex-wrap:wrap;}
+  .contacto .identidad h3{font-family:'Georama',sans-serif;font-weight:600;font-size:30px;line-height:42px;color:var(--blanco);}
+  .contacto .identidad p{font-family:'Georama',sans-serif;font-weight:600;font-size:24px;line-height:42px;color:var(--gris-footer);}
+  .contacto .datos{width:380px;max-width:100%;display:flex;flex-direction:column;gap:20px;}
+  .contacto .dato{display:flex;flex-direction:column;gap:13px;}
+  .contacto .dato .fila{display:flex;align-items:center;gap:28px;padding:0 28px;}
+  .contacto .dato .fila.fila-icono{gap:8px;}
+  .contacto .etiqueta{font-weight:600;font-size:17px;line-height:28px;color:var(--blanco);}
+  .contacto .valor{font-weight:400;font-size:16px;line-height:28px;color:var(--blanco);}
+  .contacto .linea{border:none;border-top:1.5px solid var(--blanco);width:100%;}
+  .contacto .icono-linkedin{width:30px;height:30px;display:flex;align-items:center;justify-content:center;transition:opacity .2s;}
+  .contacto .icono-linkedin svg{width:23px;height:23px;}
+  .contacto a:hover .icono-linkedin{opacity:.6;}
+  .contacto a.valor:hover{opacity:.7;}
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:1000px){
+    .presentacion .contenido{flex-wrap:wrap;gap:28px;padding:40px 32px;}
+    .presentacion .foto{margin-left:0;}
+    .presentacion .saludo,.presentacion .bio{margin-left:0;}
+    .cv .columna{margin:0 auto;padding:0 32px;max-width:820px;}
+    .cv .rect-decor{display:none;}
+  }
+  @media (max-width:760px){
+    .page{padding:0 12px;}
+    .site-header{top:12px;width:calc(100% - 24px);}
+    .site-header .logo{margin-left:6px;}
+    .site-header nav{position:static;transform:none;margin-left:auto;margin-right:8px;gap:2px;}
+    .site-header nav a{font-size:14px;padding:10px 6px;}
+    .hero{height:auto;padding:130px 0 64px;}
+    .hero .rol,.hero .nombre{position:static;padding-left:20px;}
+    .hero .rol{font-size:13vw;white-space:normal;}
+    .hero .nombre{font-size:8.6vw;}
+    .hero .circulo{right:-260px;}
+    .presentacion .saludo{font-size:32px;}
+    .cv{padding:64px 0 72px;}
+    .cv .columna{padding:0 20px;gap:36px;}
+    .proyectos{padding:72px 20px;}
+    .proyectos h2{font-size:30px;}
+    .proyecto .nombre-proyecto{font-size:24px;}
+    .contacto{padding:70px 20px;}
+    .contacto .contenido{flex-direction:column;gap:40px;}
+    .contacto .dato .fila{padding:0 6px;}
+  }
+</style>
+</head>
+<body id="inicio">
+<div class="page">
+
+  <header class="site-header">
+    <a class="logo" href="#inicio">BMG</a>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="circulo" aria-hidden="true"></div>
+    <div class="rol">UX/UI Designer</div>
+    <h1 class="nombre">Barle María Gabriela</h1>
+  </section>
+
+  <section class="presentacion">
+    <div class="contenido">
+      <img class="foto" src="img/foto-gabi.jpg" alt="Foto de Barle María Gabriela">
+      <div class="saludo">Hola !<br>soy Gabi.</div>
+      <p class="bio">UX/UI Designer con 4 años de experiencia creando productos digitales en contextos de producto, consultoría y sector público. Trabajo de forma end-to-end: desde el relevamiento de requerimientos y análisis de comportamiento de usuarios hasta el diseño de interfaces, documentación y entrega a equipos de desarrollo. Actualmente incorporo herramientas de IA generativa en mi flujo de trabajo diario. Disfruto los entornos multidisciplinarios, la iteración continua y proponer soluciones con impacto medible.</p>
+    </div>
+  </section>
+
+  <section class="cv">
+    <div class="rect-decor" aria-hidden="true"></div>
+    <div class="columna">
+
+      <div class="bloque">
+        <h2>Mi experiencia como UX/UI Designer</h2>
+        <div class="bloque-items">
+          <div class="item">
+            <p class="titulo">Luz Consulting| 2025 – Actualidad</p>
+            <p class="detalle">Diseño productos digitales (web y apps) dentro del área de tecnología, alineando necesidades de negocio y experiencia de usuario. Participo en instancias iniciales con clientes para relevar requerimientos y definir el alcance de las soluciones. Exploro y desarrollo múltiples propuestas de diseño, iterando alternativas hasta consolidar una solución final validada. Trabajo en conjunto con equipos interdisciplinarios para asegurar la implementación y evolución de los productos.</p>
+          </div>
+          <div class="item">
+            <p class="titulo">Freelance| 2023 – Actualidad</p>
+            <p class="detalle">Diseño productos digitales para distintos clientes, abarcando tanto proyectos desde cero como la evolución de plataformas existentes. Lidero procesos de rediseño enfocados en mejorar la experiencia de usuario y optimizar flujos críticos. Desarrollo soluciones end-to-end, desde la definición del problema hasta la propuesta final de diseño. Trabajo de forma autónoma, adaptando cada proyecto a los objetivos de negocio y contexto del cliente.</p>
+          </div>
+          <div class="item">
+            <p class="titulo">Mooving Tech| 2022 – 2024</p>
+            <p class="detalle">Realicé benchmark y análisis de flujos para identificar oportunidades de mejora en la experiencia. Documenté el proceso de trabajo y generé entregables claros para los equipos de desarrollo. Trabajé con procesos de Design Thinking junto a otras disciplinas para resolver problemas complejos.</p>
+          </div>
+          <div class="item">
+            <p class="titulo">Ministerio de Hacienda y Finanzas Provincia de Buenos Aires - Proyecto RAFAM | 2021 – 2023</p>
+            <p class="detalle">Analicé y rediseñé la experiencia de múltiples módulos del sistema RAFAM (Reforma de la Administración Financiera Municipal), plataforma de alcance provincial diseñada para los 135 municipios de la Provincia de Buenos Aires. Relevé requerimientos con usuarios internos, detecté oportunidades de mejora y propuse soluciones con impacto directo en la operación diaria. Definí y construí el sistema de interfaz (UI Kit) y prototipos de alta fidelidad listos para implementación.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bloque">
+        <h2>Educación</h2>
+        <div class="bloque-items">
+          <div class="item item-edu">
+            <p class="titulo">Diseño UX/UI</p>
+            <p class="detalle">Coderhouse | 2020 – 2021</p>
+          </div>
+          <div class="item item-edu">
+            <p class="titulo">Talleres IxDA La Plata – Heurísticas, prototipado y testing con usuarios</p>
+            <p class="detalle">IxDA La Plata| 2020</p>
+          </div>
+          <div class="item item-edu">
+            <p class="titulo">Profesorado en Diseño Industrial</p>
+            <p class="detalle">Universidad Nacional de La Plata | 2018 – 2021</p>
+          </div>
+          <div class="item item-edu">
+            <p class="titulo">Diseño Industrial</p>
+            <p class="detalle">Universidad Nacional de La Plata | 2012 – 2017</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bloque">
+        <h2>Formación Complementaria</h2>
+        <div class="lista-formacion">
+          <p class="destacado">2026|FreeCodeCamp - Responsive Web Design - En curso</p>
+          <p class="destacado">2025|Somos Edison - Genera impacto con UX Research Evaluativo - Sol Velázquez</p>
+          <p>2024|Capacitación UX Writing - Agostina Casale</p>
+          <p>2023|ILA2023 -Workshop: UX y Diseño de Producto para Soluciones de Inteligencia Artificial y Machine Learning: Creación desde la Incertidumbre</p>
+          <p>2023|Capacitación RAFAM - Introducción al testing manual</p>
+          <p>2023|La Agencia Nacional de Discapacidad (ANDIS) y NIC Argentina - Capacitación: ¿Cómo desarrollar una página web accesible?</p>
+        </div>
+
+        <h2 style="margin-top:18px;">Herramientas</h2>
+        <p class="herramientas">Diseño y prototipado: Figma · Claude Design · Whimsical · Adobe Suite<br>Research y colaboración: Miro · Mural · FigJam<br>Gestión: Jira · Confluence · Notion · Asana<br>IA generativa: Claude · ChatGPT · Lovable</p>
+
+        <p class="idioma">Idioma:  Inglés (intermedio B2)</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="proyectos" id="proyectos">
+    <div class="contenido">
+      <h2>Proyectos</h2>
+      <div class="lista">
+        <a class="proyecto" href="recab.html">
+          <p class="categoria">Diseño de Producto – Sistema Modular</p>
+          <p class="nombre-proyecto">Recab</p>
+        </a>
+        <a class="proyecto" href="astreafem.html">
+          <p class="categoria">Diseño de App Móvil</p>
+          <p class="nombre-proyecto">AstreaFem</p>
+        </a>
+        <a class="proyecto" href="atenea.html">
+          <p class="categoria">Rediseño UX/UI – Plataforma de Análisis Deportivo</p>
+          <p class="nombre-proyecto">Atenea</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="contacto" id="contacto">
+    <div class="contenido">
+      <div class="identidad">
+        <h3>Barle María Gabriela</h3>
+        <p>UX/UI Designer</p>
+      </div>
+      <div class="datos">
+        <div class="dato"><div class="fila"><span class="valor">La Plata, Buenos Aires, Argentina</span></div><hr class="linea"></div>
+        <div class="dato"><div class="fila"><span class="etiqueta">E-mail</span><a class="valor" href="mailto:gabi.barle@gmail.com">gabi.barle@gmail.com</a></div><hr class="linea"></div>
+        <div class="dato"><div class="fila"><span class="etiqueta">Teléfono</span><span class="valor">221 557-8745</span></div><hr class="linea"></div>
+        <div class="dato"><div class="fila fila-icono"><span class="etiqueta">LinkedIn</span><a class="icono-linkedin" href="https://www.linkedin.com/in/gabrielabarle/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a></div><hr class="linea"></div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

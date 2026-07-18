@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AstreaFem — Barle María Gabriela</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Georama:wght@400;600;700&family=Open+Sans:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Open Sans',sans-serif;background:#FFFFFF;color:#333333;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{display:block;max-width:100%;height:auto;}
+/* ===== layout en caja: margen a los costados ===== */
+.page{max-width:1240px;margin:0 auto;padding:0 24px;}
+.wrap{max-width:1100px;margin:0 auto;padding:0 32px;}
+/* header flotante */
+.site-header{position:fixed;top:22px;left:50%;transform:translateX(-50%);width:min(1240px,calc(100% - 32px));height:58px;background:rgba(255,255,255,0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:16px;display:flex;align-items:center;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,0.08);}
+.site-header .logo{font-family:'Georama',sans-serif;font-weight:700;font-size:19px;color:#20292F;padding:12px;margin-left:24px;}
+.site-header .volver{margin-left:auto;margin-right:24px;font-size:15px;color:#20292F;padding:12px;transition:opacity .2s;}
+.site-header .volver:hover{opacity:.55;}
+/* contexto / problema */
+.ctx{background:#FFFFFF;padding:100px 0 60px;}
+.ctx .fila{display:flex;gap:60px;align-items:flex-start;margin-bottom:40px;}
+.ctx .fila h2{font-family:'Georama',sans-serif;font-weight:700;font-size:42px;line-height:1.2;flex:0 0 230px;}
+.ctx .fila p{font-size:16px;line-height:25px;color:#000;max-width:700px;white-space:pre-line;}
+/* pill (objetivo / solución) */
+.pill{border-radius:16px;display:flex;align-items:center;gap:56px;padding:36px 52px;max-width:1100px;margin:0 auto;position:relative;z-index:2;}
+.pill h2{font-family:'Georama',sans-serif;font-weight:700;font-size:34px;line-height:1.05;color:#FFF;flex-shrink:0;}
+.pill p{font-weight:700;font-size:16px;line-height:24px;color:#FFF;max-width:560px;}
+.pill.solucion{padding:48px 60px;}
+.pill.solucion p{font-size:18px;line-height:28px;max-width:600px;}
+.pill-straddle{transform:translateY(50%);margin-top:-70px;}
+/* secciones de estudio */
+.big-h{font-family:'Georama',sans-serif;font-weight:700;font-size:62px;line-height:1.2;}
+.mid-h{font-family:'Georama',sans-serif;font-weight:700;font-size:44px;line-height:1.2;}
+.dos-col{display:flex;gap:56px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;}
+.text-block h3{font-weight:700;font-size:26px;line-height:34px;margin-bottom:12px;}
+.text-block p{font-family:'Inter',sans-serif;font-size:17px;line-height:26px;color:#000;}
+/* cards desafíos */
+.cards-4{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;}
+.cards-4 .card{background:#FFF;border-radius:16px;padding:34px 30px;min-height:170px;display:flex;align-items:center;}
+.cards-4 .card p{font-family:'Georama',sans-serif;font-weight:600;font-size:18px;line-height:25px;color:#20292F;}
+/* decisiones grid */
+.dec-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px 80px;}
+.dec-grid h3{font-family:'Inter',sans-serif;font-weight:600;font-size:23px;line-height:31px;margin-bottom:12px;}
+.dec-grid p{font-family:'Inter',sans-serif;font-size:17px;line-height:26px;}
+/* resultados */
+.resultados{text-align:center;background:linear-gradient(to bottom,#FFF 0,#FFF 46%,#E7E7E7 46%,#E7E7E7 100%);padding:40px 0 60px;}
+.resultados h2{margin-bottom:40px;color:#000;}
+.res-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1100px;margin:0 auto;padding:0 32px;}
+.res-cards .card{border-radius:14px;min-height:270px;display:flex;align-items:flex-end;padding:30px;text-align:left;}
+.res-cards .card p{font-family:'Inter',sans-serif;font-weight:700;font-size:22px;line-height:28px;color:#FFF;}
+/* aprendizajes */
+.aprendizajes{padding:80px 0 100px;background:#FFF;}
+.aprendizajes h2{color:#000;margin-bottom:26px;}
+.aprendizajes hr{border:none;border-top:1px solid #000;margin-bottom:44px;}
+.apr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:64px;}
+.apr-grid h3{font-family:'Inter',sans-serif;font-weight:700;font-size:26px;line-height:34px;margin-bottom:12px;}
+.apr-grid p{font-family:'Inter',sans-serif;font-size:17px;line-height:26px;color:#333;}
+/* footer contacto */
+.contacto{background:#0F0F0F;padding:110px 40px;}
+.contacto .contenido{max-width:900px;margin:0 auto;display:flex;justify-content:space-between;gap:60px;flex-wrap:wrap;}
+.contacto .identidad h3{font-family:'Georama',sans-serif;font-weight:600;font-size:30px;line-height:42px;color:#FFF;}
+.contacto .identidad p{font-family:'Georama',sans-serif;font-weight:600;font-size:24px;line-height:42px;color:#666;}
+.contacto .datos{width:380px;max-width:100%;display:flex;flex-direction:column;gap:20px;}
+.contacto .dato{display:flex;flex-direction:column;gap:13px;}
+.contacto .dato .fila{display:flex;align-items:center;gap:28px;padding:0 28px;}
+.contacto .dato .fila.fila-icono{gap:8px;}
+.contacto .etiqueta{font-weight:600;font-size:17px;line-height:28px;color:#FFF;}
+.contacto .valor{font-weight:400;font-size:16px;line-height:28px;color:#FFF;}
+.contacto .linea{border:none;border-top:1.5px solid #FFF;width:100%;}
+.contacto .icono-linkedin{width:30px;height:30px;display:flex;align-items:center;justify-content:center;}
+.contacto .icono-linkedin svg{width:23px;height:23px;}
+/* responsive */
+@media (max-width:1000px){
+ .ctx .fila{flex-direction:column;gap:18px;}
+ .ctx .fila h2{flex:none;font-size:36px;}
+ .big-h{font-size:46px;}
+ .mid-h{font-size:34px;}
+ .cards-4{grid-template-columns:repeat(2,1fr);gap:24px;}
+ .dec-grid{grid-template-columns:1fr;gap:36px;}
+ .res-cards{grid-template-columns:repeat(2,1fr);}
+ .apr-grid{grid-template-columns:1fr;gap:40px;}
+ .pill{flex-direction:column;gap:18px;align-items:flex-start;padding:32px;}
+}
+@media (max-width:700px){
+ .page{padding:0 12px;}
+ .site-header{top:12px;width:calc(100% - 24px);}
+ .site-header .logo{margin-left:6px;}
+ .site-header .volver{margin-right:6px;font-size:14px;}
+ .wrap{padding:0 20px;}
+ .ctx{padding:80px 0 44px;}
+ .ctx .fila h2{font-size:30px;}
+ .ctx .fila p{font-size:15px;line-height:23px;}
+ .big-h{font-size:36px;}
+ .mid-h{font-size:28px;}
+ .cards-4{grid-template-columns:1fr;}
+ .res-cards{grid-template-columns:1fr;}
+ .res-cards .card{min-height:200px;}
+ .text-block h3{font-size:22px;line-height:29px;}
+ .text-block p,.dec-grid p,.apr-grid p{font-size:15px;line-height:23px;}
+ .dec-grid h3{font-size:20px;line-height:27px;}
+ .contacto{padding:70px 20px;}
+ .contacto .contenido{flex-direction:column;gap:40px;}
+ .contacto .dato .fila{padding:0 6px;}
+ .pill h2{font-size:27px;}
+ .pill.solucion p{font-size:16px;line-height:24px;}
+}
+
+.ctx .fila h2{color:#A4B0AD;}
+.hero-astrea{position:relative;width:100%;aspect-ratio:1920/997;background:url('img/astrea-hero.png') center/cover no-repeat;}
+.hero-astrea .logo-astrea{position:absolute;left:10.5%;top:16%;width:16%;}
+.hero-astrea .textos{position:absolute;left:20.6%;top:46%;max-width:34%;}
+.hero-astrea .textos h1{font-weight:600;font-size:clamp(15px,2vw,25px);line-height:1.35;color:#20292F;}
+.hero-astrea .textos p{font-size:clamp(11px,1.3vw,16px);line-height:1.35;color:#20292F;}
+.gris{background:#E7E7E7;padding:110px 0 80px;}
+.gris .seccion{margin-bottom:90px;}
+.acc{color:#A4B0AD;}
+.pill.objetivo,.pill.solucion{background:#005454;}
+.res-cards .card{background:#006A6A;}
+.text-block h3{color:#005454;font-family:'Open Sans',sans-serif;}
+.invest p{font-weight:600;font-size:16px;line-height:24px;color:#000;max-width:500px;}
+.dec-grid h3{color:#000;}
+.personas img{border-radius:16px;width:100%;}
+.fotos-proc{display:flex;gap:26px;margin-top:48px;flex-wrap:wrap;}
+.fotos-proc figure{flex:1 1 300px;}
+.fotos-proc img{width:100%;object-fit:cover;}
+.fotos-proc figcaption{font-weight:600;font-size:14px;color:#000;margin-top:22px;}
+.banda-img{padding:44px 0;}
+.banda-img img{width:100%;max-width:1700px;margin:0 auto;}
+.banda-onboarding{background:#EFE5F0;padding:0;}
+.banda-onboarding img{max-width:1100px;width:94%;margin:0 auto;padding:36px 0;}
+.apr-flex{display:flex;gap:44px;align-items:flex-start;}
+.apr-flex .flecha{width:84px;flex-shrink:0;}
+.apr-flex p{font-family:'Inter',sans-serif;font-size:17px;line-height:26px;color:#000;max-width:640px;margin-left:auto;white-space:pre-line;}
+@media (max-width:900px){.hero-astrea .textos{max-width:44%;}.apr-flex{flex-direction:column;}.apr-flex p{font-size:15px;line-height:23px;}.gris{padding:70px 0 50px;}.gris .seccion{margin-bottom:60px;}}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="site-header"><a class="logo" href="index.html">BMG</a><a class="volver" href="index.html">Volver al inicio</a></header>
+<section class="hero-astrea">
+  <img class="logo-astrea" src="img/astrea-logo.png" alt="AstreaFem">
+  <div class="textos"><h1>Mobile App </h1><p>Una app de movilidad, con enfoque en la seguridad y autonomía de las mujeres</p></div>
+</section>
+
+<section class="ctx"><div class="wrap">
+  <div class="fila"><h2>Contexto</h2><p>AstreaFem surge a partir de Remifem, una remisería operada por mujeres que brinda un servicio de transporte entre conductoras y pasajeras mujeres.
+Actualmente, la gestión del servicio se realiza de forma manual a través de WhatsApp, lo que permite operar pero genera una fuerte dependencia de la plataforma para coordinar viajes y administrar la información.</p></div>
+  <div class="fila"><h2>Problema</h2><p>La operación del servicio depende completamente de WhatsApp, lo que implica riesgos críticos para la continuidad del negocio.
+La suspensión de la cuenta en reiteradas ocasiones provocó la pérdida de información clave y la interrupción del servicio, evidenciando la falta de control sobre los datos y procesos.
+Además, la gestión manual dificulta la escalabilidad y limita la capacidad de ofrecer una experiencia consistente y confiable a las usuarias.</p></div>
+</div></section>
+
+<div class="wrap"><div class="pill objetivo pill-straddle"><h2>Objetivo</h2><p>Diseñar una plataforma digital que permita asegurar la continuidad del servicio, optimizar su gestión y facilitar su escalabilidad, ampliando el acceso a una experiencia de movilidad segura para más mujeres.</p></div></div>
+
+<section class="gris"><div class="wrap">
+  <div class="seccion dos-col">
+    <h2 class="big-h acc">Investigación</h2>
+    <div class="invest"><p>Se realizaron entrevistas a pasajeras, conductoras y recepcionistas para comprender las dinámicas actuales del servicio y detectar oportunidades de mejora en la experiencia.<br><br>El análisis permitió identificar problemáticas tanto en la seguridad del viaje como en la gestión operativa del servicio.</p></div>
+  </div>
+  <div class="seccion dos-col">
+    <h2 class="big-h acc">Insights</h2>
+    <div style="max-width:620px;display:flex;flex-direction:column;gap:36px;">
+      <div class="text-block"><h3>La seguridad es una experiencia completa, no solo el viaje</h3><p>Las usuarias perciben la seguridad como un proceso integral que comienza al solicitar el auto y continúa hasta el cierre del viaje. La falta de información y control en las etapas previas genera ansiedad e inseguridad.</p></div>
+      <div class="text-block"><h3>WhatsApp es práctico, pero limita la experiencia</h3><p>Si bien el uso de WhatsApp facilita la comunicación, no ofrece trazabilidad, historial ni control sobre pagos, reclamos o estados del viaje, lo que afecta la confianza en el servicio.</p></div>
+      <div class="text-block"><h3>Configurar preferencias evita fricciones y explicaciones</h3><p>Viajar con hijos, mascotas o realizar trayectos especiales suele implicar negociaciones incómodas. Las usuarias valoran poder definir estas necesidades desde la app, de forma clara y anticipada.</p></div>
+      <div class="text-block"><h3>La flexibilidad es clave para las conductoras, pero necesita soporte</h3><p>Las conductoras buscan autonomía para organizar sus horarios y viajes, pero requieren herramientas que les permitan gestionar disponibilidad, ingresos y estados de manera simple y previsible.</p></div>
+    </div>
+  </div>
+  <div class="seccion">
+    <h2 class="mid-h acc" style="margin-bottom:50px;">DECISIONES DE DISEÑO</h2>
+    <div class="dec-grid">
+      <div><h3>Centralizar la gestión del servicio en una plataforma propia</h3><p>Para reducir la dependencia de WhatsApp y evitar la pérdida de información crítica.</p></div>
+      <div><h3>Incorporar información clara de conductoras y vehículos </h3><p>Para aumentar la confianza y seguridad percibida por las pasajeras antes y durante el viaje.</p></div>
+      <div><h3>Diseñar flujos simples y accesibles para conductoras</h3><p>Considerando que interactúan con la app en contextos de alta demanda o mientras conducen.</p></div>
+      <div><h3>Optimizar la coordinación y asignación de viajes</h3><p>Para reducir errores manuales, cancelaciones y mejorar la comunicación entre pasajeras, conductoras y operación.</p></div>
+    </div>
+  </div>
+  <div class="seccion" style="margin-bottom:0;">
+    <div class="dos-col" style="margin-bottom:50px;">
+      <h2 class="mid-h acc">Proceso</h2>
+      <p style="font-size:17px;line-height:26px;color:#000;max-width:480px;">A partir de las entrevistas realizadas, se sintetizaron los principales insights que guiaron la definición de la solución. Se iteraron propuestas enfocadas en simplificar la experiencia y mejorar la coordinación del servicio.</p>
+    </div>
+    <div class="personas"><img src="img/astrea-personas.png" alt="Perfiles de usuarias"></div>
+    <div class="fotos-proc">
+      <figure style="flex:0 1 32%;"><img src="img/astrea-foto1.jpg" alt="Construcción de perfiles"><figcaption>Construcción de perfiles de usuarias a partir de entrevistas</figcaption></figure>
+      <figure style="flex:1 1 55%;"><img src="img/astrea-foto2.jpg" alt="Análisis de soluciones"><figcaption>Análisis de soluciones existentes y definición de oportunidades</figcaption></figure>
+    </div>
+  </div>
+</div></section>
+
+<div class="wrap" style="margin-top:50px;"><div class="pill solucion"><h2>Solución</h2><p>Una app que refuerza la confianza, la autonomía y la sensación de cuidado en cada punto de contacto.</p></div></div>
+
+<section class="banda-img"><div class="wrap"><img src="img/astrea-iconos.png" alt="Beneficios de AstreaFem"></div></section>
+
+<section class="banda-img" style="padding-top:0;"><div class="wrap"><img src="img/astrea-banda1.png" alt="Pantalla de solicitud de viaje con anotaciones"></div></section>
+
+<section class="banda-onboarding"><img src="img/astrea-onboarding.png" alt="Pantallas de onboarding de AstreaFem"></section>
+
+<section class="banda-img"><div class="wrap"><img src="img/astrea-banda2.png" alt="Pantalla de gestión de viajes de conductoras con anotaciones"></div></section>
+
+<section style="padding-bottom:60px;"><img src="img/astrea-cards.png" alt="Comunidad AstreaFem" style="width:100%;"></section>
+
+<section class="resultados">
+  <h2 class="mid-h">RESULTADOS</h2>
+  <div class="res-cards">
+    <div class="card"><p>Un MVP que conecta pasajeras, conductoras y gestión en un solo ecosistema.</p></div>
+    <div class="card"><p>Viajes más seguros, claros y predecibles desde la experiencia.</p></div>
+    <div class="card"><p>Experiencia diseñada con enfoque en confianza y autonomía.</p></div>
+    <div class="card"><p>Identidad visual consistente, preparada para escalar.</p></div>
+  </div>
+</section>
+
+<section class="aprendizajes"><div class="wrap">
+  <h2 class="mid-h">APRENDIZAJES</h2>
+  <hr>
+  <div class="apr-flex">
+    <img class="flecha" src="img/astrea-arrow1.png" alt="">
+    <p>Este proyecto reforzó la importancia de la investigación y la escucha activa como base para diseñar soluciones relevantes.
+
+Trabajar con distintas usuarias permitió entender que la experiencia no es única, sino que requiere contemplar múltiples contextos, necesidades y niveles de confianza.
+
+Comprender en profundidad las experiencias y preocupaciones de las usuarias permitió identificar oportunidades que van más allá de lo funcional, abordando aspectos clave como la seguridad y la confianza.
+
+Trabajar en un proyecto con un fuerte impacto social fue especialmente motivador, ya que implicó transformar problemáticas reales en una solución que busca aportar valor concreto en la vida cotidiana de las mujeres.</p>
+  </div>
+</div></section>
+<footer class="contacto" id="contacto">
+  <div class="contenido">
+    <div class="identidad">
+      <h3>Barle María Gabriela</h3>
+      <p>UX/UI Designer</p>
+    </div>
+    <div class="datos">
+      <div class="dato"><div class="fila"><span class="valor">La Plata, Buenos Aires, Argentina</span></div><hr class="linea"></div>
+      <div class="dato"><div class="fila"><span class="etiqueta">E-mail</span><a class="valor" href="mailto:gabi.barle@gmail.com">gabi.barle@gmail.com</a></div><hr class="linea"></div>
+      <div class="dato"><div class="fila"><span class="etiqueta">Teléfono</span><span class="valor">221 557-8745</span></div><hr class="linea"></div>
+      <div class="dato"><div class="fila fila-icono"><span class="etiqueta">LinkedIn</span><a class="icono-linkedin" href="https://www.linkedin.com/in/gabrielabarle/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="27" height="27" viewBox="0 0 24 24" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a></div><hr class="linea"></div>
+    </div>
+  </div>
+</footer>
+</div>
+</body>
+</html>
