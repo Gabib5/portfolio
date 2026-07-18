@@ -3,246 +3,243 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Barle María Gabriela — UX/UI Designer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Georama:wght@400;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<title>Recab — Barle María Gabriela</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Georama:wght@400;600;700&family=Open+Sans:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --negro:#000000; --negro-suave:#0F0F0F; --gris-oscuro:#1C1C1C; --gris-texto:#2B2B2B;
-    --gris-medio:#919191; --gris-footer:#666666; --gris-fondo:#F8F8F8; --lila:#E4CBE4;
-    --tinta:#333333; --nav:#20292F; --blanco:#FFFFFF;
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{font-family:'Open Sans',sans-serif;background:var(--blanco);color:var(--tinta);overflow-x:hidden;}
-  a{text-decoration:none;color:inherit;}
-  img{display:block;max-width:100%;}
-  .page{max-width:1240px;margin:0 auto;padding:0 24px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Open Sans',sans-serif;background:#FFFFFF;color:#333333;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{display:block;max-width:100%;height:auto;}
+/* ===== layout en caja: margen a los costados ===== */
+.page{max-width:1240px;margin:0 auto;padding:0 24px;}
+.wrap{max-width:1100px;margin:0 auto;padding:0 32px;}
+/* header flotante */
+.site-header{position:fixed;top:22px;left:50%;transform:translateX(-50%);width:min(1240px,calc(100% - 32px));height:58px;background:rgba(255,255,255,0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:16px;display:flex;align-items:center;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,0.08);}
+.site-header .logo{font-family:'Georama',sans-serif;font-weight:700;font-size:19px;color:#20292F;padding:12px;margin-left:24px;}
+.site-header .volver{margin-left:auto;margin-right:24px;font-size:15px;color:#20292F;padding:12px;transition:opacity .2s;}
+.site-header .volver:hover{opacity:.55;}
+/* contexto / problema */
+.ctx{background:#FFFFFF;padding:100px 0 60px;}
+.ctx .fila{display:flex;gap:60px;align-items:flex-start;margin-bottom:40px;}
+.ctx .fila h2{font-family:'Georama',sans-serif;font-weight:700;font-size:42px;line-height:1.2;flex:0 0 230px;}
+.ctx .fila p{font-size:16px;line-height:25px;color:#000;max-width:700px;white-space:pre-line;}
+/* pill (objetivo / solución) */
+.pill{border-radius:16px;display:flex;align-items:center;gap:56px;padding:36px 52px;max-width:1100px;margin:0 auto;position:relative;z-index:2;}
+.pill h2{font-family:'Georama',sans-serif;font-weight:700;font-size:34px;line-height:1.05;color:#FFF;flex-shrink:0;}
+.pill p{font-weight:700;font-size:16px;line-height:24px;color:#FFF;max-width:560px;}
+.pill.solucion{padding:48px 60px;}
+.pill.solucion p{font-size:18px;line-height:28px;max-width:600px;}
+.pill-straddle{transform:translateY(50%);margin-top:-70px;}
+/* secciones de estudio */
+.big-h{font-family:'Georama',sans-serif;font-weight:700;font-size:62px;line-height:1.2;}
+.mid-h{font-family:'Georama',sans-serif;font-weight:700;font-size:44px;line-height:1.2;}
+.dos-col{display:flex;gap:56px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;}
+.text-block h3{font-weight:700;font-size:26px;line-height:34px;margin-bottom:12px;}
+.text-block p{font-family:'Inter',sans-serif;font-size:17px;line-height:26px;color:#000;}
+/* cards desafíos */
+.cards-4{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;}
+.cards-4 .card{background:#FFF;border-radius:16px;padding:34px 30px;min-height:170px;display:flex;align-items:center;}
+.cards-4 .card p{font-family:'Georama',sans-serif;font-weight:600;font-size:18px;line-height:25px;color:#20292F;}
+/* decisiones grid */
+.dec-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px 80px;}
+.dec-grid h3{font-family:'Inter',sans-serif;font-weight:600;font-size:23px;line-height:31px;margin-bottom:12px;}
+.dec-grid p{font-family:'Inter',sans-serif;font-size:17px;line-height:26px;}
+/* resultados */
+.resultados{text-align:center;background:linear-gradient(to bottom,#FFF 0,#FFF 46%,#E7E7E7 46%,#E7E7E7 100%);padding:40px 0 60px;}
+.resultados h2{margin-bottom:40px;color:#000;}
+.res-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1100px;margin:0 auto;padding:0 32px;}
+.res-cards .card{border-radius:14px;min-height:270px;display:flex;align-items:flex-end;padding:30px;text-align:left;}
+.res-cards .card p{font-family:'Inter',sans-serif;font-weight:700;font-size:22px;line-height:28px;color:#FFF;}
+/* aprendizajes */
+.aprendizajes{padding:80px 0 100px;background:#FFF;}
+.aprendizajes h2{color:#000;margin-bottom:26px;}
+.aprendizajes hr{border:none;border-top:1px solid #000;margin-bottom:44px;}
+.apr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:64px;}
+.apr-grid h3{font-family:'Inter',sans-serif;font-weight:700;font-size:26px;line-height:34px;margin-bottom:12px;}
+.apr-grid p{font-family:'Inter',sans-serif;font-size:17px;line-height:26px;color:#333;}
+/* footer contacto */
+.contacto{background:#0F0F0F;padding:110px 40px;}
+.contacto .contenido{max-width:900px;margin:0 auto;display:flex;justify-content:space-between;gap:60px;flex-wrap:wrap;}
+.contacto .identidad h3{font-family:'Georama',sans-serif;font-weight:600;font-size:30px;line-height:42px;color:#FFF;}
+.contacto .identidad p{font-family:'Georama',sans-serif;font-weight:600;font-size:24px;line-height:42px;color:#666;}
+.contacto .datos{width:380px;max-width:100%;display:flex;flex-direction:column;gap:20px;}
+.contacto .dato{display:flex;flex-direction:column;gap:13px;}
+.contacto .dato .fila{display:flex;align-items:center;gap:28px;padding:0 28px;}
+.contacto .dato .fila.fila-icono{gap:8px;}
+.contacto .etiqueta{font-weight:600;font-size:17px;line-height:28px;color:#FFF;}
+.contacto .valor{font-weight:400;font-size:16px;line-height:28px;color:#FFF;}
+.contacto .linea{border:none;border-top:1.5px solid #FFF;width:100%;}
+.contacto .icono-linkedin{width:30px;height:30px;display:flex;align-items:center;justify-content:center;}
+.contacto .icono-linkedin svg{width:23px;height:23px;}
+/* responsive */
+@media (max-width:1000px){
+ .ctx .fila{flex-direction:column;gap:18px;}
+ .ctx .fila h2{flex:none;font-size:36px;}
+ .big-h{font-size:46px;}
+ .mid-h{font-size:34px;}
+ .cards-4{grid-template-columns:repeat(2,1fr);gap:24px;}
+ .dec-grid{grid-template-columns:1fr;gap:36px;}
+ .res-cards{grid-template-columns:repeat(2,1fr);}
+ .apr-grid{grid-template-columns:1fr;gap:40px;}
+ .pill{flex-direction:column;gap:18px;align-items:flex-start;padding:32px;}
+}
+@media (max-width:700px){
+ .page{padding:0 12px;}
+ .site-header{top:12px;width:calc(100% - 24px);}
+ .site-header .logo{margin-left:6px;}
+ .site-header .volver{margin-right:6px;font-size:14px;}
+ .wrap{padding:0 20px;}
+ .ctx{padding:80px 0 44px;}
+ .ctx .fila h2{font-size:30px;}
+ .ctx .fila p{font-size:15px;line-height:23px;}
+ .big-h{font-size:36px;}
+ .mid-h{font-size:28px;}
+ .cards-4{grid-template-columns:1fr;}
+ .res-cards{grid-template-columns:1fr;}
+ .res-cards .card{min-height:200px;}
+ .text-block h3{font-size:22px;line-height:29px;}
+ .text-block p,.dec-grid p,.apr-grid p{font-size:15px;line-height:23px;}
+ .dec-grid h3{font-size:20px;line-height:27px;}
+ .contacto{padding:70px 20px;}
+ .contacto .contenido{flex-direction:column;gap:40px;}
+ .contacto .dato .fila{padding:0 6px;}
+ .pill h2{font-size:27px;}
+ .pill.solucion p{font-size:16px;line-height:24px;}
+}
 
-  /* ===== HEADER ===== */
-  .site-header{position:fixed;top:22px;left:50%;transform:translateX(-50%);width:min(1240px,calc(100% - 32px));height:58px;background:rgba(255,255,255,0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:16px;display:flex;align-items:center;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,0.08);}
-  .site-header .logo{font-family:'Georama',sans-serif;font-weight:700;font-size:19px;color:var(--nav);padding:12px;margin-left:24px;}
-  .site-header nav{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:16px;}
-  .site-header nav a{font-size:15px;color:var(--nav);padding:12px;transition:opacity .2s ease;}
-  .site-header nav a:hover{opacity:.55;}
-
-  /* ===== HERO ===== */
-  .hero{position:relative;background:var(--blanco);height:560px;overflow:hidden;}
-  .hero .circulo{position:absolute;top:-320px;right:-160px;width:620px;height:620px;border:2.5px solid var(--negro);border-radius:50%;}
-  .hero .rol{position:absolute;top:200px;left:26px;font-family:'Georama',sans-serif;font-weight:700;font-size:96px;line-height:1.28;color:var(--lila);white-space:nowrap;}
-  .hero .nombre{position:absolute;top:324px;left:26px;font-family:'Georama',sans-serif;font-weight:600;font-size:60px;line-height:1.2;color:var(--tinta);}
-
-  /* ===== PRESENTACIÓN ===== */
-  .presentacion{position:relative;background:var(--negro);display:flex;align-items:center;}
-  .presentacion .contenido{width:100%;position:relative;display:flex;align-items:center;padding:44px 40px;gap:0;}
-  .presentacion .foto{width:190px;height:190px;border-radius:50%;object-fit:cover;flex-shrink:0;margin-left:60px;}
-  .presentacion .saludo{font-family:'Georama',sans-serif;font-weight:600;font-size:40px;line-height:1.2;color:var(--blanco);margin-left:44px;flex-shrink:0;}
-  .presentacion .bio{font-weight:700;font-size:15px;line-height:23px;color:var(--blanco);max-width:600px;margin-left:64px;}
-
-  /* ===== CV ===== */
-  .cv{position:relative;background:var(--gris-fondo);padding:96px 0 110px;overflow:hidden;}
-  .cv .rect-decor{position:absolute;top:96px;left:-300px;width:640px;height:510px;border:2.5px solid var(--negro);}
-  .cv .columna{position:relative;max-width:760px;margin-left:auto;margin-right:60px;display:flex;flex-direction:column;gap:48px;}
-  .cv h2{font-family:'Georama',sans-serif;font-weight:600;font-size:27px;line-height:37px;color:var(--gris-oscuro);margin-bottom:24px;}
-  .cv .bloque-items{display:flex;flex-direction:column;gap:20px;}
-  .cv .item .titulo{font-weight:700;font-size:14px;line-height:19px;color:var(--negro);margin-bottom:6px;}
-  .cv .item .detalle{font-weight:400;font-size:14px;line-height:22px;color:var(--gris-texto);}
-  .cv .item-edu .titulo{font-size:16px;}
-  .cv .item-edu .detalle{line-height:19px;}
-  .cv .lista-formacion p{font-size:14px;line-height:20px;color:var(--negro);margin-bottom:18px;}
-  .cv .lista-formacion p.destacado{font-weight:600;}
-  .cv .herramientas{font-weight:600;font-size:14px;line-height:26px;color:var(--negro);}
-  .cv .idioma{font-family:'Georama',sans-serif;font-weight:600;font-size:19px;line-height:37px;color:var(--gris-oscuro);margin-top:18px;}
-
-  /* ===== PROYECTOS ===== */
-  .proyectos{background:var(--negro-suave);padding:110px 40px 120px;}
-  .proyectos .contenido{max-width:640px;margin:0 auto;}
-  .proyectos h2{font-family:'Georama',sans-serif;font-weight:600;font-size:37px;line-height:1.05;color:var(--blanco);margin-bottom:28px;}
-  .proyectos .lista{display:flex;flex-direction:column;gap:6px;}
-  .proyecto{display:block;border-bottom:1px solid var(--blanco);padding:18px 0 20px;transition:padding-left .25s ease;}
-  .proyecto:hover{padding-left:12px;}
-  .proyecto .categoria{font-weight:400;font-size:16px;line-height:20px;color:var(--blanco);margin-bottom:6px;}
-  .proyecto .nombre-proyecto{font-family:'Georama',sans-serif;font-weight:600;font-size:31px;line-height:1.25;color:var(--gris-medio);transition:color .25s ease;}
-  .proyecto:hover .nombre-proyecto{color:var(--blanco);}
-
-  /* ===== CONTACTO ===== */
-  .contacto{background:var(--negro-suave);padding:110px 40px;}
-  .contacto .contenido{max-width:900px;margin:0 auto;display:flex;justify-content:space-between;gap:60px;flex-wrap:wrap;}
-  .contacto .identidad h3{font-family:'Georama',sans-serif;font-weight:600;font-size:30px;line-height:42px;color:var(--blanco);}
-  .contacto .identidad p{font-family:'Georama',sans-serif;font-weight:600;font-size:24px;line-height:42px;color:var(--gris-footer);}
-  .contacto .datos{width:380px;max-width:100%;display:flex;flex-direction:column;gap:20px;}
-  .contacto .dato{display:flex;flex-direction:column;gap:13px;}
-  .contacto .dato .fila{display:flex;align-items:center;gap:28px;padding:0 28px;}
-  .contacto .dato .fila.fila-icono{gap:8px;}
-  .contacto .etiqueta{font-weight:600;font-size:17px;line-height:28px;color:var(--blanco);}
-  .contacto .valor{font-weight:400;font-size:16px;line-height:28px;color:var(--blanco);}
-  .contacto .linea{border:none;border-top:1.5px solid var(--blanco);width:100%;}
-  .contacto .icono-linkedin{width:30px;height:30px;display:flex;align-items:center;justify-content:center;transition:opacity .2s;}
-  .contacto .icono-linkedin svg{width:23px;height:23px;}
-  .contacto a:hover .icono-linkedin{opacity:.6;}
-  .contacto a.valor:hover{opacity:.7;}
-
-  /* ===== RESPONSIVE ===== */
-  @media (max-width:1000px){
-    .presentacion .contenido{flex-wrap:wrap;gap:28px;padding:40px 32px;}
-    .presentacion .foto{margin-left:0;}
-    .presentacion .saludo,.presentacion .bio{margin-left:0;}
-    .cv .columna{margin:0 auto;padding:0 32px;max-width:820px;}
-    .cv .rect-decor{display:none;}
-  }
-  @media (max-width:760px){
-    .page{padding:0 12px;}
-    .site-header{top:12px;width:calc(100% - 24px);}
-    .site-header .logo{margin-left:6px;}
-    .site-header nav{position:static;transform:none;margin-left:auto;margin-right:8px;gap:2px;}
-    .site-header nav a{font-size:14px;padding:10px 6px;}
-    .hero{height:auto;padding:130px 0 64px;}
-    .hero .rol,.hero .nombre{position:static;padding-left:20px;}
-    .hero .rol{font-size:13vw;white-space:normal;}
-    .hero .nombre{font-size:8.6vw;}
-    .hero .circulo{right:-260px;}
-    .presentacion .saludo{font-size:32px;}
-    .cv{padding:64px 0 72px;}
-    .cv .columna{padding:0 20px;gap:36px;}
-    .proyectos{padding:72px 20px;}
-    .proyectos h2{font-size:30px;}
-    .proyecto .nombre-proyecto{font-size:24px;}
-    .contacto{padding:70px 20px;}
-    .contacto .contenido{flex-direction:column;gap:40px;}
-    .contacto .dato .fila{padding:0 6px;}
-  }
+.ctx .fila h2{color:#333333;}
+.gris{background:#E7E7E7;padding:110px 0 80px;}
+.gris .seccion{margin-bottom:90px;}
+.acc{color:#151B52;}
+.pill.objetivo,.pill.solucion,.res-cards .card{background:#151B52;}
+.text-block h3{color:#151B52;font-family:'Open Sans',sans-serif;}
+.invest p{font-weight:600;font-size:16px;line-height:24px;color:#000;max-width:500px;}
+.proc-imgs{display:flex;gap:22px;align-items:flex-end;margin-top:34px;flex-wrap:wrap;}
+.proc-imgs img{border-radius:10px;flex:1 1 280px;object-fit:cover;max-height:447px;}
+.proc-caption{font-family:'Inter',sans-serif;font-weight:500;font-size:18px;color:#000;margin:22px 0;}
+.uikit{padding:56px 0 28px;}
+.uikit .marco{position:relative;max-width:1516px;margin:0 auto;}
+.uikit img{border-radius:16px;width:100%;}
+.uikit .nota{position:absolute;top:32px;right:5%;max-width:420px;font-weight:700;font-size:13px;line-height:18px;color:#000;}
+.disenio{padding:50px 0 28px;}
+.disenio .intro h2{font-family:'Georama',sans-serif;font-weight:700;font-size:30px;line-height:38px;color:#151B52;margin-bottom:14px;}
+.disenio .intro p{font-family:'Inter',sans-serif;font-weight:600;font-size:17px;line-height:24px;color:#333;max-width:460px;}
+.disenio .mock{margin-top:40px;}
+.dec-grid h3{color:#000;}
+@media (max-width:760px){.uikit .nota{position:static;margin-bottom:14px;max-width:100%;}.gris{padding:70px 0 50px;}.gris .seccion{margin-bottom:60px;}}
 </style>
 </head>
-<body id="inicio">
+<body>
 <div class="page">
+<header class="site-header"><a class="logo" href="index.html">BMG</a><a class="volver" href="index.html">Volver al inicio</a></header>
+<section class="hero-img"><img src="recab-hero.png" alt="Recab — Web App y Mobile App" style="width:100%;"></section>
 
-  <header class="site-header">
-    <a class="logo" href="#inicio">BMG</a>
-    <nav>
-      <a href="#inicio">Inicio</a>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-  </header>
+<section class="ctx"><div class="wrap">
+  <div class="fila"><h2>Contexto</h2><p>Recab* es fábrica de conductores eléctricos, que abastece a distribuidores y obras públicas.
+En este contexto, participé en el diseño de una plataforma digital orientada a centralizar la información y mejorar la trazabilidad de los procesos, desde la fabricación hasta la entrega final.
 
-  <section class="hero">
-    <div class="circulo" aria-hidden="true"></div>
-    <div class="rol">UX/UI Designer</div>
-    <h1 class="nombre">Barle María Gabriela</h1>
-  </section>
+*Por razones de confidencialidad, el nombre de la empresa fue modificado.</p></div>
+  <div class="fila"><h2>Problema</h2><p>La mayoría de los registros eran manuales, lo cual generaba errores frecuentes, retrabajo, mala comunicación y una falta de visibilidad sobre el estado de los procesos.
+Esto impactaba directamente en la eficiencia operativa y en la capacidad de cumplir con los tiempos de entrega.</p></div>
+</div></section>
 
-  <section class="presentacion">
-    <div class="contenido">
-      <img class="foto" src="img/foto-gabi.jpg" alt="Foto de Barle María Gabriela">
-      <div class="saludo">Hola !<br>soy Gabi.</div>
-      <p class="bio">UX/UI Designer con 4 años de experiencia creando productos digitales en contextos de producto, consultoría y sector público. Trabajo de forma end-to-end: desde el relevamiento de requerimientos y análisis de comportamiento de usuarios hasta el diseño de interfaces, documentación y entrega a equipos de desarrollo. Actualmente incorporo herramientas de IA generativa en mi flujo de trabajo diario. Disfruto los entornos multidisciplinarios, la iteración continua y proponer soluciones con impacto medible.</p>
+<div class="wrap"><div class="pill objetivo pill-straddle"><h2>Objetivo</h2><p>Diseñar una plataforma que permita centralizar la información y mejorar la trazabilidad de los procesos operativos, facilitando la toma de decisiones y reduciendo errores.</p></div></div>
+
+<section class="gris"><div class="wrap">
+  <div class="seccion dos-col">
+    <h2 class="big-h acc">Investigación</h2>
+    <div class="invest"><p>Se relevaron las distintas áreas de la empresa mediante instancias presenciales en planta y entrevistas remotas con stakeholders, con el objetivo de comprender sus flujos de trabajo y detectar oportunidades de mejora.</p></div>
+  </div>
+  <div class="seccion dos-col">
+    <h2 class="big-h acc">Insights</h2>
+    <div style="max-width:600px;display:flex;flex-direction:column;gap:36px;">
+      <div class="text-block"><h3>Cuello de botella en logística </h3><p>Si bien inicialmente se percibía que los problemas se originaban en producción, el análisis reveló que logística era el principal cuello de botella, debido a la falta de integración y visibilidad en los procesos.</p></div>
+      <div class="text-block"><h3>Diferentes niveles de madurez digital</h3><p>Se identificaron distintos niveles de adopción y familiaridad con herramientas digitales entre los usuarios, lo que representaba una barrera para la implementación de una solución única.</p></div>
+      <div class="text-block"><h3>Falta de comunicación y trazabilidad</h3><p>La ausencia de trazabilidad en los procesos generaba problemas de comunicación entre áreas, dificultando la asignación de responsabilidades y la resolución de errores.</p></div>
     </div>
-  </section>
-
-  <section class="cv">
-    <div class="rect-decor" aria-hidden="true"></div>
-    <div class="columna">
-
-      <div class="bloque">
-        <h2>Mi experiencia como UX/UI Designer</h2>
-        <div class="bloque-items">
-          <div class="item">
-            <p class="titulo">Luz Consulting| 2025 – Actualidad</p>
-            <p class="detalle">Diseño productos digitales (web y apps) dentro del área de tecnología, alineando necesidades de negocio y experiencia de usuario. Participo en instancias iniciales con clientes para relevar requerimientos y definir el alcance de las soluciones. Exploro y desarrollo múltiples propuestas de diseño, iterando alternativas hasta consolidar una solución final validada. Trabajo en conjunto con equipos interdisciplinarios para asegurar la implementación y evolución de los productos.</p>
-          </div>
-          <div class="item">
-            <p class="titulo">Freelance| 2023 – Actualidad</p>
-            <p class="detalle">Diseño productos digitales para distintos clientes, abarcando tanto proyectos desde cero como la evolución de plataformas existentes. Lidero procesos de rediseño enfocados en mejorar la experiencia de usuario y optimizar flujos críticos. Desarrollo soluciones end-to-end, desde la definición del problema hasta la propuesta final de diseño. Trabajo de forma autónoma, adaptando cada proyecto a los objetivos de negocio y contexto del cliente.</p>
-          </div>
-          <div class="item">
-            <p class="titulo">Mooving Tech| 2022 – 2024</p>
-            <p class="detalle">Realicé benchmark y análisis de flujos para identificar oportunidades de mejora en la experiencia. Documenté el proceso de trabajo y generé entregables claros para los equipos de desarrollo. Trabajé con procesos de Design Thinking junto a otras disciplinas para resolver problemas complejos.</p>
-          </div>
-          <div class="item">
-            <p class="titulo">Ministerio de Hacienda y Finanzas Provincia de Buenos Aires - Proyecto RAFAM | 2021 – 2023</p>
-            <p class="detalle">Analicé y rediseñé la experiencia de múltiples módulos del sistema RAFAM (Reforma de la Administración Financiera Municipal), plataforma de alcance provincial diseñada para los 135 municipios de la Provincia de Buenos Aires. Relevé requerimientos con usuarios internos, detecté oportunidades de mejora y propuse soluciones con impacto directo en la operación diaria. Definí y construí el sistema de interfaz (UI Kit) y prototipos de alta fidelidad listos para implementación.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="bloque">
-        <h2>Educación</h2>
-        <div class="bloque-items">
-          <div class="item item-edu">
-            <p class="titulo">Diseño UX/UI</p>
-            <p class="detalle">Coderhouse | 2020 – 2021</p>
-          </div>
-          <div class="item item-edu">
-            <p class="titulo">Talleres IxDA La Plata – Heurísticas, prototipado y testing con usuarios</p>
-            <p class="detalle">IxDA La Plata| 2020</p>
-          </div>
-          <div class="item item-edu">
-            <p class="titulo">Profesorado en Diseño Industrial</p>
-            <p class="detalle">Universidad Nacional de La Plata | 2018 – 2021</p>
-          </div>
-          <div class="item item-edu">
-            <p class="titulo">Diseño Industrial</p>
-            <p class="detalle">Universidad Nacional de La Plata | 2012 – 2017</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="bloque">
-        <h2>Formación Complementaria</h2>
-        <div class="lista-formacion">
-          <p class="destacado">2026|FreeCodeCamp - Responsive Web Design - En curso</p>
-          <p class="destacado">2025|Somos Edison - Genera impacto con UX Research Evaluativo - Sol Velázquez</p>
-          <p>2024|Capacitación UX Writing - Agostina Casale</p>
-          <p>2023|ILA2023 -Workshop: UX y Diseño de Producto para Soluciones de Inteligencia Artificial y Machine Learning: Creación desde la Incertidumbre</p>
-          <p>2023|Capacitación RAFAM - Introducción al testing manual</p>
-          <p>2023|La Agencia Nacional de Discapacidad (ANDIS) y NIC Argentina - Capacitación: ¿Cómo desarrollar una página web accesible?</p>
-        </div>
-
-        <h2 style="margin-top:18px;">Herramientas</h2>
-        <p class="herramientas">Diseño y prototipado: Figma · Claude Design · Whimsical · Adobe Suite<br>Research y colaboración: Miro · Mural · FigJam<br>Gestión: Jira · Confluence · Notion · Asana<br>IA generativa: Claude · ChatGPT · Lovable</p>
-
-        <p class="idioma">Idioma:  Inglés (intermedio B2)</p>
-      </div>
-
+  </div>
+  <div class="seccion">
+    <h2 class="mid-h acc" style="text-align:center;margin-bottom:56px;">Principales desafíos</h2>
+    <div class="cards-4">
+      <div class="card"><p>Facilitar la adopción del sistema en usuarios con baja madurez digital</p></div>
+      <div class="card"><p>Digitalizar procesos altamente manuales</p></div>
+      <div class="card"><p>Integrar áreas operativas en una única solución</p></div>
+      <div class="card"><p>Traducir flujos complejos a una experiencia digital eficiente</p></div>
     </div>
-  </section>
-
-  <section class="proyectos" id="proyectos">
-    <div class="contenido">
-      <h2>Proyectos</h2>
-      <div class="lista">
-        <a class="proyecto" href="recab.html">
-          <p class="categoria">Diseño de Producto – Sistema Modular</p>
-          <p class="nombre-proyecto">Recab</p>
-        </a>
-        <a class="proyecto" href="astreafem.html">
-          <p class="categoria">Diseño de App Móvil</p>
-          <p class="nombre-proyecto">AstreaFem</p>
-        </a>
-        <a class="proyecto" href="atenea.html">
-          <p class="categoria">Rediseño UX/UI – Plataforma de Análisis Deportivo</p>
-          <p class="nombre-proyecto">Atenea</p>
-        </a>
-      </div>
+  </div>
+  <div class="seccion">
+    <h2 class="mid-h acc" style="margin-bottom:50px;">DECISIONES DE DISEÑO</h2>
+    <div class="dec-grid">
+      <div><h3>Centralización de la información</h3><p>Se diseñó un sistema de tareas que integra las distintas áreas, permitiendo visualizar y gestionar la información de forma centralizada.</p></div>
+      <div><h3>Simplificación de flujos de trabajo </h3><p>Se relevaron y reorganizaron los procesos existentes, reduciendo pasos innecesarios y adaptándolos a una lógica digital más eficiente.</p></div>
+      <div><h3>Diseño orientado a la adopción</h3><p>Se priorizó una interfaz clara e intuitiva, considerando los distintos niveles de madurez digital de los usuarios para facilitar el uso del sistema.</p></div>
+      <div><h3>Mejora en la trazabilidad y comunicación</h3><p>Se incorporaron estados y seguimiento de tareas, permitiendo mayor visibilidad entre áreas y una mejor asignación de responsabilidades.</p></div>
     </div>
-  </section>
-
-  <footer class="contacto" id="contacto">
-    <div class="contenido">
-      <div class="identidad">
-        <h3>Barle María Gabriela</h3>
-        <p>UX/UI Designer</p>
-      </div>
-      <div class="datos">
-        <div class="dato"><div class="fila"><span class="valor">La Plata, Buenos Aires, Argentina</span></div><hr class="linea"></div>
-        <div class="dato"><div class="fila"><span class="etiqueta">E-mail</span><a class="valor" href="mailto:gabi.barle@gmail.com">gabi.barle@gmail.com</a></div><hr class="linea"></div>
-        <div class="dato"><div class="fila"><span class="etiqueta">Teléfono</span><span class="valor">221 557-8745</span></div><hr class="linea"></div>
-        <div class="dato"><div class="fila fila-icono"><span class="etiqueta">LinkedIn</span><a class="icono-linkedin" href="https://www.linkedin.com/in/gabrielabarle/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a></div><hr class="linea"></div>
-      </div>
+  </div>
+  <div class="seccion" style="margin-bottom:0;">
+    <h2 class="mid-h acc" style="margin-bottom:30px;">Proceso y validación</h2>
+    <p class="proc-caption">Iteración de soluciones a partir de pruebas con usuarios</p>
+    <div class="dos-col" style="align-items:flex-start;">
+      <p style="font-size:17px;line-height:26px;color:#000;max-width:480px;margin-left:auto;order:2;">Se desarrollaron e iteraron prototipos de media y alta fidelidad, optimizando estructuras de información y flujos de navegación para tareas críticas.<br><br>Las propuestas fueron validadas con usuarios en planta mediante pruebas de usabilidad, ajustando la experiencia en base a los resultados obtenidos.</p>
     </div>
-  </footer>
+    <div class="proc-imgs">
+      <img src="recab-proc1.jpg" alt="Prueba de usabilidad en planta">
+      <img src="recab-proc2.jpg" alt="Validación con usuarios">
+      <img src="recab-proc3.jpg" alt="Iteración de prototipos">
+    </div>
+  </div>
+</div></section>
 
+<div class="wrap" style="margin-top:50px;"><div class="pill solucion"><h2>Solución</h2><p>Una plataforma digital modular que centraliza la información de las distintas áreas de la empresa, permitiendo gestionar de forma integrada los procesos de producción, control de calidad y logística.</p></div></div>
+
+<section class="uikit"><div class="wrap"><div class="marco">
+  <p class="nota">Para asegurar consistencia entre módulos y escalar la solución, se definió un UI KIT con componentes reutilizables.</p>
+  <img src="recab-uikit.png" alt="UI Kit de Recab">
+</div></div></section>
+
+<section class="disenio"><div class="wrap">
+  <div class="intro"><h2>Diseño desktop</h2><p>Esta interfaz prioriza la visualización de información y el control de los procesos, facilitando la toma de decisiones y el seguimiento de pedidos.</p></div>
+  <div class="mock"><img src="recab-desktop.png" alt="Diseño desktop de Recab con anotaciones"></div>
+</div></section>
+
+<section class="disenio" style="padding-top:20px;"><div class="wrap">
+  <div class="mock"><img src="recab-mobile.png" alt="Diseño mobile de Recab con anotaciones"></div>
+</div></section>
+
+<section class="resultados">
+  <h2 class="mid-h">RESULTADOS</h2>
+  <div class="res-cards">
+    <div class="card"><p>Centralización de la información operativa</p></div>
+    <div class="card"><p>Reducción de errores en tareas diarias</p></div>
+    <div class="card"><p>Mayor trazabilidad en los procesos productivos</p></div>
+    <div class="card"><p>Mejora en la toma de decisiones a partir de indicadores</p></div>
+  </div>
+</section>
+
+<section class="aprendizajes"><div class="wrap">
+  <h2 class="mid-h">APRENDIZAJES</h2>
+  <hr>
+  <div class="apr-grid">
+    <div><h3 class="acc">1</h3><p>La complejidad operativa requiere soluciones que equilibren eficiencia y adopción por parte de los usuarios.</p></div>
+    <div><h3 class="acc">2</h3><p>El research temprano es clave para alinear necesidades de negocio y experiencia de usuario.</p></div>
+    <div><h3 class="acc">3</h3><p>Diseñar para entornos industriales implica priorizar claridad y funcionalidad sobre lo visual.</p></div>
+  </div>
+</div></section>
+<footer class="contacto" id="contacto">
+  <div class="contenido">
+    <div class="identidad">
+      <h3>Barle María Gabriela</h3>
+      <p>UX/UI Designer</p>
+    </div>
+    <div class="datos">
+      <div class="dato"><div class="fila"><span class="valor">La Plata, Buenos Aires, Argentina</span></div><hr class="linea"></div>
+      <div class="dato"><div class="fila"><span class="etiqueta">E-mail</span><a class="valor" href="mailto:gabi.barle@gmail.com">gabi.barle@gmail.com</a></div><hr class="linea"></div>
+      <div class="dato"><div class="fila"><span class="etiqueta">Teléfono</span><span class="valor">221 557-8745</span></div><hr class="linea"></div>
+      <div class="dato"><div class="fila fila-icono"><span class="etiqueta">LinkedIn</span><a class="icono-linkedin" href="https://www.linkedin.com/in/gabrielabarle/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="27" height="27" viewBox="0 0 24 24" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a></div><hr class="linea"></div>
+    </div>
+  </div>
+</footer>
 </div>
 </body>
 </html>
